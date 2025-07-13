@@ -1,5 +1,5 @@
 function Step_1({stage}){
-  console.log(stage)
+  
   return(
   <div className={`form-step ${stage == 1 ? "show-step": "hide-step"}`}>
     <h2>Personal Information</h2>

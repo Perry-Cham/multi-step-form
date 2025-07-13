@@ -68,6 +68,28 @@ body{
   .show-step{
     display:block;
   }
+  /* STYLES FOR SOECIFIC STEPS */
+  
+.stage-three input[type="checkbox"], .stage-two input[type="checkbox"]{
+    opacity:0;
+    height:0;
+    width:0;
+  } 
+  label{
+    display:block;
+  }
+  label:has(input:checked){
+    border:solid 5px blue;
+    border-radius:1rem;
+  }
+
+  
+  /* Form Footer Styles */
+  .form-footer{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 /* Slider Styles on Step 2*/
 .switch {
   position: relative;

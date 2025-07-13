@@ -1,46 +1,30 @@
 import {useState, useEffect} from 'react';
-function Step_2({stage}){
-  const [plan, setPlan] = useState('monthly')
-  const [prices, setPrices] = useState({
-    arcade:9,
-    advanced:12,
-    pro:15
-  })
-  useEffect(() => {
-    if(plan === 'monthly'){
-      let newPrices = {
-        arcade:9,
-    advanced:12,
-    pro:15
-      }
-      setPrices(newPrices)
-    }else{
-      let newPrices = {
-        arcade:9,
-    advanced:12,
-    pro:15
-      }
-      setPrices(newPrices)
-    }
-  }, [plan])
+function Step_2({stage, handleChangePlanType, planType, prices,setPlan}){
+  function handleChangePlan(e){
+    console.log(e)
+    setPlan(e.target.value)
+  }
   return(
-  <div className={`form-step ${stage == 2 ? "show-step": "hide-step"}`}>
-    <h2>Select your plan</h2>
+  <div className={`form-step stage-two ${stage == 2 ? "show-step": "hide-step"}`}>
+    <h2>Select your Plan</h2>
     <label>
-          <input type="radio" value="Arcade"/>
-          <p>`${prices.arcade}${plan == "monthly"?"/mo":"/yr"}`</p>
+          <input type="checkbox" value="Arcade" onChange={(e) => handleChangePlan(e)}/>
+          <p>Arcade</p>
+          <p>${prices.arcade2} {planType == "monthly"?"/mo":"/yr"}</p>
     </label>
     <label>
-          <input type="radio" value="Advanced"/>
-          <p>`${prices.advanced}${plan == "monthly"?"/mo":"/yr"}`</p>
+          <input type="checkbox" value="Advanced" onChange={(e) => handleChangePlan(e)}/>
+          <p>Advanced</p>
+          <p>${prices.advanced} {planType == "monthly"?"/mo":"/yr"}</p>
     </label>
     <label>
-          <input type="radio" value="Pro"/>
-          <p>`${prices.pro}${plan == "monthly"?"/mo":"/yr"}`</p>
+          <input type="checkbox" value="Pro" onChange={(e) => handleChangePlan(e)}/>
+          <p>Pro</p>
+          <p>${prices.pro} {planType == "monthly"?"/mo":"/yr"}</p>
     </label>
     
   <label className="switch">
-  <input type="checkbox" />
+  <input type="checkbox" value="monthly" onChange={handleChangePlanType}/>
   <span className="slider round"></span>
 </label>
 
