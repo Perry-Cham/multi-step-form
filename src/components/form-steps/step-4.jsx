@@ -11,7 +11,6 @@ function Step_4({planType,plan,addons,setStage,stage,prices, submitted}){
   
   const totalUp = () => {
  const addonsTotal = addonCopy ? addonCopy.reduce((prev, curr) => prev + curr.price, 0) : 0;
- console.log(prices, plan)
  const p = plan.toLowerCase()
  return addonsTotal + prices[p]
   }

@@ -77,13 +77,33 @@ body{
   } 
   label{
     display:block;
+    
   }
   label:has(input:checked){
-    border:solid 5px blue;
+    border:solid 2px blue;
     border-radius:1rem;
+  background-color: var(--Blue-300);
   }
-
-  
+.stage-two label:not(.switch){
+  border:solid 2px var(--Grey-500);
+  border-radius:.5rem;
+  padding-left:1rem;
+  margin-bottom:1rem;
+}
+.stage-two .plan-type-switcher{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  color:var(--Grey-500);
+  background-color:var(--Purple-200) ;
+  font-weight:600;
+}
+.mo, .yr{
+  margin:1rem .75rem;
+}
+.current-planType{
+  color: var(--Blue-950);
+}
   /* Form Footer Styles */
   .form-footer{
     display:flex;
@@ -127,11 +147,11 @@ body{
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: var(--Blue-950);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px (--Blue-950);
 }
 
 input:checked + .slider:before {
