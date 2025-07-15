@@ -76,9 +76,9 @@ function Form(){
     />
     <div className="form-footer">
       {stage > 1 &&
-        <button type="button" onClick={handleGoBack}>Go Back</button>
+        <button type="button" className="back-btn" onClick={handleGoBack}>Go Back</button>
       }
-      <button type="submit">{stage < 4 ? "Next Step": "Submit"}</button>
+      <button className="next-step-btn" type="submit">{stage < 4 ? "Next Step": "Submit"}</button>
     </div>
   </form>
     </>

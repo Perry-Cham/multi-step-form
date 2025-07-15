@@ -1,115 +1,149 @@
-body{
-  padding:0;
-  margin:0;
-  font-family:Ubuntu, "Segoe UI", Roboto, sans-serif;
-  box-sizing:border-box;
---font-family:Ubuntu, "Segoe UI", Roboto, sans-serif;
---Blue-950: hsl(213, 96%, 18%);
---Purple-600: hsl(243, 100%, 62%);
---Blue-300: hsl(228, 100%, 84%);
---Blue-200: hsl(206, 94%, 87%);
---Red-500: hsl(354, 84%, 57%);
---Grey-500: hsl(231, 11%, 63%);
---Purple-200: hsl(229, 24%, 87%);
---Blue-100: hsl(218, 100%, 97%);
---Blue-50: hsl(231, 100%, 99%);
- 
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Ubuntu, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+  --font-family: Ubuntu, "Segoe UI", Roboto, sans-serif;
+  --h-bold: 500;
+  --Blue-950: hsl(213, 96%, 18%);
+  --Purple-600: hsl(243, 100%, 62%);
+  --Blue-300: hsl(228, 100%, 84%);
+  --Blue-200: hsl(206, 94%, 87%);
+  --Red-500: hsl(354, 84%, 57%);
+  --Grey-500: hsl(231, 11%, 63%);
+  --Purple-200: hsl(229, 24%, 87%);
+  --Blue-100: hsl(218, 100%, 97%);
+  --Blue-50: hsl(231, 100%, 99%);
 }
+
 /* Navigation bar */
-.step-display{
-  display:flex;
-  justify-content:center;
-  align-items: center;
-  background:url(/images/bg-sidebar-mobile.svg);
-  background-size:cover;
-  min-height:15vh;
-  max-height:300px;
-  color:white;
-}
-  .nav-indicator{
-    display:inline-block;
-    margin:0 .75rem;
-    border:solid 2px var(--Blue-200);
-    width:1.25rem;
-    height:1.25rem;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-  }
-  /* Form Styles */
-  .form{
-    background-color:var(--Blue-200);
-    padding:2rem 0;
-  }
-  /* Form step styles */
-  .form-step{
-    width:90vw;
-    max-width:400px;
-    margin:1rem auto;
-    border-radius:10px;
-    background-color: white;
-    padding:0.75rem 0.5rem;
-    display:none;
-  }
-  .form-step h2{
-    font-weight:900;
-  }
-  .form-step input{
-    display:block;
-    margin-bottom:1rem;
-    height:2rem;
-    width:90%;
-    border:solid 1px var(--Grey-500);
-    padding-left:.5rem;
-    border-radius:5px;
-    font-family:var(--font-family);
-    }
-  .show-step{
-    display:block;
-  }
-  /* STYLES FOR SOECIFIC STEPS */
-  
-.stage-three input[type="checkbox"], .stage-two input[type="checkbox"]{
-    opacity:0;
-    height:0;
-    width:0;
-  } 
-  label{
-    display:block;
-    
-  }
-  label:has(input:checked){
-    border:solid 2px blue;
-    border-radius:1rem;
-  background-color: var(--Blue-300);
-  }
-.stage-two label:not(.switch){
-  border:solid 2px var(--Grey-500);
-  border-radius:.5rem;
-  padding-left:1rem;
-  margin-bottom:1rem;
-}
-.stage-two .plan-type-switcher{
-  display:flex;
+.step-display {
+  display: flex;
   justify-content: center;
   align-items: center;
-  color:var(--Grey-500);
-  background-color:var(--Purple-200) ;
-  font-weight:600;
+  background: url(/images/bg-sidebar-mobile.svg);
+  background-size: cover;
+  min-height: 15vh;
+  max-height: 300px;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  padding-top: 1rem;
 }
-.mo, .yr{
-  margin:1rem .75rem;
+.step-display div {
+  margin: 0 1rem;
+  text-align: center;
 }
-.current-planType{
+.nav-indicator {
+  margin: 0 auto;
+  border: solid 2px var(--Blue-200);
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Form Styles */
+.form {
+  background-color: var(--Blue-200);
+  padding-top: 20vh;
+  min-height: 95vh;
+  z-index: -1;
+}
+/* Form step styles */
+.form-step {
+  width: 90vw;
+  max-width: 400px;
+  margin: 1rem auto;
+  border-radius: 10px;
+  background-color: var(--Blue-50);
+  padding: 1rem 1.25rem;
+  display: none;
+  position: relative;
+  z-index: 2;
+}
+.form-step h2 {
+  font-weight: 900;
+}
+.form-step input[type="text"] {
+  display: block;
+  margin-bottom: 1rem;
+  height: 2rem;
+  width: 90%;
+  border: solid 1px var(--Grey-500);
+  padding-left: 0.5rem;
+  border-radius: 5px;
+  font-family: var(--font-family);
+}
+.show-step {
+  display: block;
+}
+/* STYLES FOR SOECIFIC STEPS */
+
+
+.stage-two input[type="checkbox"] {
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+label {
+  display: block;
+}
+label:has(input:checked):not(.switch) {
+  border: solid 2px blue;
+  border-radius: 1rem;
+  background-color: var(--Blue-300);
+}
+.stage-two label:not(.switch), .stage-three label {
+  border: solid 2px var(--Grey-500);
+  border-radius: 0.5rem;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+.stage-two .plan-type-switcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--Grey-500);
+  background-color: var(--Purple-200);
+  font-weight: 600;
+}
+.mo,
+.yr {
+  margin: 1rem 0.75rem;
+}
+.current-planType {
   color: var(--Blue-950);
 }
-  /* Form Footer Styles */
-  .form-footer{
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-  }
+
+
+
+/* Form Footer Styles */
+.form-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--Blue-50);
+  height: clamp(50px, 10vh, 170px);
+}
+.form-footer button {
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem 0.5rem;
+}
+.next-step-btn {
+  background-color: var(--Blue-950);
+  color: var(--Blue-50);
+  border-radius: 5px;
+}
+.back-btn{
+  color:var(--Grey-500)
+}
 /* Slider Styles on Step 2*/
 .switch {
   position: relative;
@@ -166,10 +200,46 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-/* Responsive Design */ 
-@media only screen and (max-width:600px){
-  .nav-heading, .nav-text{
-    display:none;
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+  .nav-heading,
+  .nav-text {
+    display: none;
   }
-
+}
+/* RESPONSIVE DESIGN */
+@media only screen and (max-width: 650px){s
+  .stage-two label{
+    display:grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows:auto;
+  }
+  .plan-icon{
+    grid-column:1;
+    align-self: center;
+    justify-self: center;
+  }
+  .stage-two label p, .stage-two label input{
+    grid-column:2;
+  }
+  .stage-three label{
+    display:grid;
+    grid-template-columns:25% 50% 25%;
+    grid-template-rows:auto;
+  }
+  .stage-three input[type="checkbox"]{
+    height:1.75rem;
+    width:1.75rem;
+    grid-column:1;
+    align-self:center;
+    justify-self:center;
+  }
+  .stage-three .wrapper{
+    grid-column:2;
+  }
+  .stage-three label>p{
+    grid-column:3;
+    align-self:center;
+    justify-self:center;
+  }
 }
