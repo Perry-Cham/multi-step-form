@@ -84,7 +84,6 @@ body {
 }
 /* STYLES FOR SOECIFIC STEPS */
 
-
 .stage-two input[type="checkbox"] {
   opacity: 0;
   height: 0;
@@ -98,7 +97,8 @@ label:has(input:checked):not(.switch) {
   border-radius: 1rem;
   background-color: var(--Blue-300);
 }
-.stage-two label:not(.switch), .stage-three label {
+.stage-two label:not(.switch),
+.stage-three label {
   border: solid 2px var(--Grey-500);
   border-radius: 0.5rem;
   padding-left: 1rem;
@@ -119,9 +119,9 @@ label:has(input:checked):not(.switch) {
 .current-planType {
   color: var(--Blue-950);
 }
-
-
-
+.stage-four .summary-container{
+  background-color: var(--Blue-100);
+}
 /* Form Footer Styles */
 .form-footer {
   display: flex;
@@ -141,8 +141,9 @@ label:has(input:checked):not(.switch) {
   color: var(--Blue-50);
   border-radius: 5px;
 }
-.back-btn{
-  color:var(--Grey-500)
+.back-btn {
+  background-color: white;
+  color: var(--Grey-500);
 }
 /* Slider Styles on Step 2*/
 .switch {
@@ -208,38 +209,92 @@ input:checked + .slider:before {
   }
 }
 /* RESPONSIVE DESIGN */
-@media only screen and (max-width: 650px){s
-  .stage-two label{
-    display:grid;
+@media only screen and (max-width: 650px) {
+  .stage-two label {
+    display: grid;
     grid-template-columns: 20% 80%;
-    grid-template-rows:auto;
+    grid-template-rows: auto;
   }
-  .plan-icon{
-    grid-column:1;
+  .plan-icon {
+    grid-column: 1;
     align-self: center;
     justify-self: center;
   }
-  .stage-two label p, .stage-two label input{
-    grid-column:2;
+  .stage-two label p,
+  .stage-two label input {
+    grid-column: 2;
   }
-  .stage-three label{
-    display:grid;
-    grid-template-columns:25% 50% 25%;
-    grid-template-rows:auto;
+  .stage-three label {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: auto;
   }
-  .stage-three input[type="checkbox"]{
-    height:1.75rem;
-    width:1.75rem;
-    grid-column:1;
-    align-self:center;
-    justify-self:center;
+  .stage-three input[type="checkbox"] {
+    height: 1.75rem;
+    width: 1.75rem;
+    grid-column: 1;
+    align-self: center;
+    justify-self: center;
   }
-  .stage-three .wrapper{
-    grid-column:2;
+  .stage-three .wrapper {
+    grid-column: 2;
   }
-  .stage-three label>p{
-    grid-column:3;
-    align-self:center;
-    justify-self:center;
+  .stage-three label > p {
+    grid-column: 3;
+    align-self: center;
+    justify-self: center;
   }
+  .stage-four .addon,
+  .plan-summary,
+  .total-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .plan-header {
+    text-transform: capitalize;
+  }
+  .plan-header,
+  .plan-price {
+    color: var(--Blue-950);
+  }
+  .plan-price, .total-price{
+    font-weight:500;
+  }
+  .plan-summary button {
+    border: none;
+    background-color: white;
+    color: var(--Grey-500);
+    text-decoration: underline;
+    padding-left: 0;
+    margin-left: 0;
+  }
+  .addon-name, .total-text {
+    color: var(--Grey-500);
+    text-transform: capitalize;
+  }
+  .addon-price, .total-price {
+    color: var(--Purple-600);
+  }
+  .plan-price,
+  .addon-wrapper,
+  .addon-price,
+  .summary-wrapper,
+  .addon-wrapper,
+  .total-price{
+    align-self: center;
+  }
+  .plan-price,
+  .addon-price,
+  .total-price{
+    text-align: right;
+  }
+  .addon-wrapper,  .summary-wrapper,.total-text  {
+    grid-column: 1;
+  }
+
+  .summary-total,   .total-price,   .addon-price {
+    grid-column: 2;
+  }
+
+
 }
