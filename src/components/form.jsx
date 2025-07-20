@@ -43,7 +43,7 @@ function Form(){
     }
   },[planType])
   return(
-    <>
+    <section className="form-container">
     <Step_Display
     stage={stage}
     />
@@ -81,7 +81,7 @@ function Form(){
       <button className="next-step-btn" type="submit">{stage < 4 ? "Next Step": "Submit"}</button>
     </div>
   </form>
-    </>
+    </section>
 
   )
 }

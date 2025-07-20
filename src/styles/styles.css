@@ -15,6 +15,7 @@ body {
   --Blue-100: hsl(218, 100%, 97%);
   --Blue-50: hsl(231, 100%, 99%);
 }
+/* Form Container */
 
 /* Navigation bar */
 .step-display {
@@ -51,7 +52,7 @@ body {
 .form {
   background-color: var(--Blue-200);
   padding-top: 20vh;
-  min-height: 95vh;
+  /* min-height: 95vh; */
   z-index: -1;
 }
 /* Form step styles */
@@ -119,7 +120,7 @@ label:has(input:checked):not(.switch) {
 .current-planType {
   color: var(--Blue-950);
 }
-.stage-four .summary-container{
+.stage-four .summary-container {
   background-color: var(--Blue-100);
 }
 /* Form Footer Styles */
@@ -210,6 +211,9 @@ input:checked + .slider:before {
 }
 /* RESPONSIVE DESIGN */
 @media only screen and (max-width: 650px) {
+  .form {
+    min-height: 95vh;
+  }
   .stage-two label {
     display: grid;
     grid-template-columns: 20% 80%;
@@ -257,8 +261,9 @@ input:checked + .slider:before {
   .plan-price {
     color: var(--Blue-950);
   }
-  .plan-price, .total-price{
-    font-weight:500;
+  .plan-price,
+  .total-price {
+    font-weight: 500;
   }
   .plan-summary button {
     border: none;
@@ -268,11 +273,13 @@ input:checked + .slider:before {
     padding-left: 0;
     margin-left: 0;
   }
-  .addon-name, .total-text {
+  .addon-name,
+  .total-text {
     color: var(--Grey-500);
     text-transform: capitalize;
   }
-  .addon-price, .total-price {
+  .addon-price,
+  .total-price {
     color: var(--Purple-600);
   }
   .plan-price,
@@ -280,21 +287,58 @@ input:checked + .slider:before {
   .addon-price,
   .summary-wrapper,
   .addon-wrapper,
-  .total-price{
+  .total-price {
     align-self: center;
   }
   .plan-price,
   .addon-price,
-  .total-price{
+  .total-price {
     text-align: right;
   }
-  .addon-wrapper,  .summary-wrapper,.total-text  {
+  .addon-wrapper,
+  .summary-wrapper,
+  .total-text {
     grid-column: 1;
   }
 
-  .summary-total,   .total-price,   .addon-price {
+  .summary-total,
+  .total-price,
+  .addon-price {
     grid-column: 2;
   }
-
-
+}
+@media only screen and (min-width: 650px) {
+  #root {
+    background-color: var(--Blue-200);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .form-container {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    width: 90%;
+    height: 80%;
+    background-color: white;
+    padding: 0.75rem;
+  }
+  .step-display {
+    position: static;
+    grid-column: 1;
+    flex-direction: column;
+    background-image: url("/public/images/bg-sidebar-desktop.svg");
+    max-height: 100%;
+  }
+  .form {
+    background-color: white;
+    grid-column: 2;
+    z-index: 1;
+    min-height: auto;
+    padding:0;
+    width:100%;
+  }
+  .form-step {
+    width: auto;
+  }
 }
