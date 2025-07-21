@@ -1,15 +1,15 @@
 function Step_3({ stage, planType, prices, addons }) {
   function handleAddon(e) {
     const newAddon = addons.find((addon) => addon === e.target.value);
-    if (newAddon) addons.splice(indexOf(e.target.value), 1);
+    if (newAddon) addons.splice(addons.indexOf(e.target.value), 1);
     else addons.push(e.target.value.toLowerCase());
   }
   return (
     <div className={`form-step stage-three ${stage == 3 ? "show-step" : "hide-step"}`}>
       <h2>Pick add-ons</h2>
       <p>Addons enhance your gaming experience</p>
-
-      <label>
+<article>
+    <label className="online-service">
         <input type="checkBox" value="Online Services" onChange={(e) => handleAddon(e)} />
         <div className="wrapper">
           <h4>Online Service</h4>
@@ -21,7 +21,7 @@ function Step_3({ stage, planType, prices, addons }) {
         </p>
       </label>
 
-      <label>
+      <label className="larger-storage">
         <input type="checkBox" value="Larger Storage" onChange={(e) => handleAddon(e)} />
         <div className="wrapper">
           <h4>Larger Storage</h4>
@@ -33,7 +33,7 @@ function Step_3({ stage, planType, prices, addons }) {
         </p>
       </label>
 
-      <label>
+      <label className="custom-profile">
         <input type="checkBox" value="Customizable Profile" onChange={(e) => handleAddon(e)} />
         <div className="wrapper">
           <h4>Customizable Profile</h4>
@@ -44,6 +44,8 @@ function Step_3({ stage, planType, prices, addons }) {
           ${prices["customizable profile"]} {planType == "monthly" ? "/mo" : "/yr"}
         </p>
       </label>
+      </article>
+
     </div>
   );
 }
