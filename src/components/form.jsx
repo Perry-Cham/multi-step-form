@@ -45,7 +45,7 @@ function Form(){
   return(
     <section className="form-container">
     <Step_Display
-    stage={stage}
+    currentStage={stage}
     />
     <form className="form" onSubmit={(e) => handleSubmit(e)}>
     <Step_1 

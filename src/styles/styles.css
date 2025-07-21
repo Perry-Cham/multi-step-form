@@ -48,6 +48,11 @@ body {
   justify-content: center;
   align-items: center;
 }
+.active-step{
+  background-color: var(--Blue-200);
+  color:var(--Blue-950);
+  font-weight:600;
+}
 /* Form Styles */
 .form {
   background-color: var(--Blue-200);
@@ -120,8 +125,86 @@ label:has(input:checked):not(.switch) {
 .current-planType {
   color: var(--Blue-950);
 }
+.stage-three label {
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: auto;
+}
+.stage-three input[type="checkbox"] {
+  height: 1.75rem;
+  width: 1.75rem;
+  grid-column: 1;
+  align-self: center;
+  justify-self: center;
+}
+.stage-three .wrapper {
+  grid-column: 2;
+}
+.stage-three label > p {
+  grid-column: 3;
+  align-self: center;
+  justify-self: center;
+}
 .stage-four .summary-container {
   background-color: var(--Blue-100);
+}
+.stage-four .addon,
+.plan-summary,
+.total-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.plan-header {
+  text-transform: capitalize;
+}
+.plan-header,
+.plan-price {
+  color: var(--Blue-950);
+}
+.plan-price,
+.total-price {
+  font-weight: 500;
+}
+.plan-summary button {
+  border: none;
+  background-color: white;
+  color: var(--Grey-500);
+  text-decoration: underline;
+  padding-left: 0;
+  margin-left: 0;
+}
+.addon-name,
+.total-text {
+  color: var(--Grey-500);
+  text-transform: capitalize;
+}
+.addon-price,
+.total-price {
+  color: var(--Purple-600);
+}
+.plan-price,
+.addon-wrapper,
+.addon-price,
+.summary-wrapper,
+.addon-wrapper,
+.total-price {
+  align-self: center;
+}
+.plan-price,
+.addon-price,
+.total-price {
+  text-align: right;
+}
+.addon-wrapper,
+.summary-wrapper,
+.total-text {
+  grid-column: 1;
+}
+
+.summary-total,
+.total-price,
+.addon-price {
+  grid-column: 2;
 }
 /* Form Footer Styles */
 .form-footer {
@@ -228,26 +311,7 @@ input:checked + .slider:before {
   .stage-two label input {
     grid-column: 2;
   }
-  .stage-three label {
-    display: grid;
-    grid-template-columns: 25% 50% 25%;
-    grid-template-rows: auto;
-  }
-  .stage-three input[type="checkbox"] {
-    height: 1.75rem;
-    width: 1.75rem;
-    grid-column: 1;
-    align-self: center;
-    justify-self: center;
-  }
-  .stage-three .wrapper {
-    grid-column: 2;
-  }
-  .stage-three label > p {
-    grid-column: 3;
-    align-self: center;
-    justify-self: center;
-  }
+
   .stage-four .addon,
   .plan-summary,
   .total-wrapper {
@@ -313,15 +377,17 @@ input:checked + .slider:before {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 2rem;
   }
   .form-container {
     display: grid;
     grid-template-columns: 35% 65%;
-    width: 90%;
-    height: 80%;
+    width: clamp(400px, 80vw, 850px);
+    min-height: 600px;
     background-color: white;
     padding: 0.75rem;
+    border-radius: 15px;
   }
   .step-display {
     position: static;
@@ -329,16 +395,72 @@ input:checked + .slider:before {
     flex-direction: column;
     background-image: url("/public/images/bg-sidebar-desktop.svg");
     max-height: 100%;
+    border-radius: 10px;
+  }
+  .step-display-step {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width:70%;
+  }
+  .nav-indicator {
+    grid-column: 1;
+    align-self: center;
+    justify-self: center;
+    height:2rem;
+    width:2rem;
+  }
+  .step-wrapper {
+    grid-column: 2;
+    align-self: center;
+    justify-self: center;
   }
   .form {
     background-color: white;
     grid-column: 2;
     z-index: 1;
     min-height: auto;
-    padding:0;
-    width:100%;
+    padding: 0;
+    width: 100%;
   }
   .form-step {
     width: auto;
+  }
+  /* STEP 2 FORM FIELD WRAPPER */
+  .stage-two article,
+  .stage-three article {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .stage-two label:not(.switch) {
+    padding: 0.75rem;
+  }
+  .arcade-label {
+    grid-column: 1;
+  }
+  .advanced-label {
+    grid-column: 2;
+  }
+  .pro-label {
+    grid-column: 3;
+  }
+  /* STEP 3 FORM FIELD WRAPPER */
+  .stage-three article {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0;
+  }
+  .stage-three label {
+    height: 80%;
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+  .online-service {
+    grid-row: 1;
+  }
+  .larger-storage {
+    grid-row: 2;
+  }
+  .custom-profile {
+    grid-row: 3;
   }
 }

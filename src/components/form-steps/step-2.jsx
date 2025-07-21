@@ -7,7 +7,7 @@ function Step_2({ stage, handleChangePlanType, planType, prices, setPlan }) {
                   <h2>Select your Plan</h2>
                   <p>You have the option of monthly or yearly billing.</p>
                   <article>
-                        <label>
+                        <label className="arcade-label">
                               <img className="plan-icon" src="/images/icon-arcade.svg" alt="arcade plan icon" />
                               <div className="wrapper">
                                     <input
@@ -23,7 +23,7 @@ function Step_2({ stage, handleChangePlanType, planType, prices, setPlan }) {
                                     </p>
                               </div>
                         </label>
-                        <label>
+                        <label className="advanced-label">
                               <img className="plan-icon" src="/images/icon-advanced.svg" alt="advanced plan icon" />
                               <div className="wrapper">
                                     <input
@@ -39,7 +39,7 @@ function Step_2({ stage, handleChangePlanType, planType, prices, setPlan }) {
                                     </p>
                               </div>
                         </label>
-                        <label>
+                        <label className="pro-label">
                               <img className="plan-icon" src="/images/icon-pro.svg" alt="pro plan icon" />
                               <div className="wrapper">
                                     <input
