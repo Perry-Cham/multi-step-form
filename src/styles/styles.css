@@ -421,6 +421,13 @@ input:checked + .slider:before {
     min-height: auto;
     padding: 0;
     width: 100%;
+    position:relative;
+  }
+  .form-footer{
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
   }
   .form-step {
     width: auto;
