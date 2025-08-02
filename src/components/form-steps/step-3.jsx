@@ -6,8 +6,8 @@ function Step_3({ stage, planType, prices, addons }) {
   }
   return (
     <div className={`form-step stage-three ${stage == 3 ? "show-step" : "hide-step"}`}>
-      <h2>Pick add-ons</h2>
-      <p>Addons enhance your gaming experience</p>
+      <h2 className="main-heading">Pick add-ons</h2>
+      <p className="main-text">Addons enhance your gaming experience</p>
 <article>
     <label className="online-service">
         <input type="checkBox" value="Online Services" onChange={(e) => handleAddon(e)} />

@@ -16,8 +16,9 @@ function Step_4({ planType, plan, addons, setStage, stage, prices, submitted }) 
 
   return !submitted ? (
     <div className={`form-step stage-four ${stage == 4 ? "show-step" : "hide-step"}`}>
-      <h2 className="stage-heading">Finishing Up</h2>
-      <p className="stage-text">Double check if everything looks okay before continuing</p>
+      <h2 className="main-heading stage-heading">Finishing Up</h2>
+      <p className="main-text stage-text">Double check if everything looks okay
+before continuing</p>
 
       <div className="summary-container">
         <div className="plan-summary">

@@ -4,8 +4,10 @@ function Step_2({ stage, handleChangePlanType, planType, prices, setPlan }) {
       }
       return (
             <div className={`form-step stage-two ${stage == 2 ? "show-step" : "hide-step"}`}>
-                  <h2>Select your Plan</h2>
-                  <p>You have the option of monthly or yearly billing.</p>
+                  <h2 className="main-heading">Select your Plan</h2>
+                  <p className="main-text">You have the option of monthly or
+yearly
+billing.</p>
                   <article>
                         <label className="arcade-label">
                               <img className="plan-icon" src="/images/icon-arcade.svg" alt="arcade plan icon" />

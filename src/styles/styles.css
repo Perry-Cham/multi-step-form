@@ -11,6 +11,7 @@ body {
   --Blue-200: hsl(206, 94%, 87%);
   --Red-500: hsl(354, 84%, 57%);
   --Grey-500: hsl(231, 11%, 63%);
+  --Grey-400:hsl(231deg 5.75% 38.11%);
   --Purple-200: hsl(229, 24%, 87%);
   --Blue-100: hsl(218, 100%, 97%);
   --Blue-50: hsl(231, 100%, 99%);
@@ -36,7 +37,7 @@ body {
 }
 .step-display div {
   margin: 0 1rem;
-  text-align: center;
+ /* text-align: center; */
 }
 .nav-indicator {
   margin: 0 auto;
@@ -53,6 +54,15 @@ body {
   color:var(--Blue-950);
   font-weight:600;
 }
+.nav-heading{
+  color:var(--Blue-200);
+  text-transform:uppercase;
+  font-size:0.85rem;
+}
+.nav-text{
+  font-weight:600;
+  text-transform:uppercase;
+}
 /* Form Styles */
 .form {
   background-color: var(--Blue-200);
@@ -63,7 +73,7 @@ body {
 /* Form step styles */
 .form-step {
   width: 90vw;
-  max-width: 400px;
+  max-width: 450px;
   margin: 1rem auto;
   border-radius: 10px;
   background-color: var(--Blue-50);
@@ -72,8 +82,14 @@ body {
   position: relative;
   z-index: 2;
 }
-.form-step h2 {
+
+.main-heading{
   font-weight: 900;
+  font-size:1.75rem;
+  color:var(--Blue-950);
+}
+.main-text{
+  color:var(--Grey-500);
 }
 .form-step input[type="text"] {
   display: block;
@@ -88,8 +104,12 @@ body {
 .show-step {
   display: block;
 }
-/* STYLES FOR SOECIFIC STEPS */
-
+/* STYLES FOR SPECIFIC STEPS */
+/* STAGE 1 */
+.stage-one label, .stage-one input[type="text"]{
+  color:var(--Blue-950);
+}
+/* STAGE 2 */
 .stage-two input[type="checkbox"] {
   opacity: 0;
   height: 0;
@@ -100,8 +120,8 @@ label {
 }
 label:has(input:checked):not(.switch) {
   border: solid 2px blue;
-  border-radius: 1rem;
-  background-color: var(--Blue-300);
+  border-radius: 0.5rem;
+  background-color: var(--Blue-100);
 }
 .stage-two label:not(.switch),
 .stage-three label {
@@ -125,6 +145,7 @@ label:has(input:checked):not(.switch) {
 .current-planType {
   color: var(--Blue-950);
 }
+/* STAGE THREE */
 .stage-three label {
   display: grid;
   grid-template-columns: 25% 50% 25%;
@@ -145,8 +166,12 @@ label:has(input:checked):not(.switch) {
   align-self: center;
   justify-self: center;
 }
+
+/* STAGE FOUR */
 .stage-four .summary-container {
   background-color: var(--Blue-100);
+  padding:0 0.75rem;
+  border-radius:0.5rem;
 }
 .stage-four .addon,
 .plan-summary,
@@ -156,6 +181,7 @@ label:has(input:checked):not(.switch) {
 }
 .plan-header {
   text-transform: capitalize;
+  margin-bottom:0.25rem;
 }
 .plan-header,
 .plan-price {
@@ -165,17 +191,21 @@ label:has(input:checked):not(.switch) {
 .total-price {
   font-weight: 500;
 }
+.plan-summary{
+ border-bottom:solid 2px var(--Grey-500);
+ padding-bottom:1rem;
+}
 .plan-summary button {
   border: none;
-  background-color: white;
-  color: var(--Grey-500);
+  background-color: inherit;
   text-decoration: underline;
   padding-left: 0;
   margin-left: 0;
+  color: var(--Grey-500);
 }
 .addon-name,
 .total-text {
-  color: var(--Grey-500);
+    color: var(--Grey-400);
   text-transform: capitalize;
 }
 .addon-price,
@@ -206,7 +236,7 @@ label:has(input:checked):not(.switch) {
 .addon-price {
   grid-column: 2;
 }
-/* Form Footer Styles */
+/* FORM FOOTER STYLES */
 .form-footer {
   display: flex;
   justify-content: space-around;
@@ -229,7 +259,7 @@ label:has(input:checked):not(.switch) {
   background-color: white;
   color: var(--Grey-500);
 }
-/* Slider Styles on Step 2*/
+/* STYLE'S FOR THE SWITCH ON STEP TWO*/
 .switch {
   position: relative;
   display: inline-block;
@@ -285,17 +315,20 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-/* Responsive Design */
+/* RESPONSIVE DESIGN MOBILE */
 @media only screen and (max-width: 600px) {
   .nav-heading,
   .nav-text {
     display: none;
   }
 }
-/* RESPONSIVE DESIGN */
+
 @media only screen and (max-width: 650px) {
   .form {
     min-height: 95vh;
+  }
+  .form-step{
+    max-width:350px;
   }
   .stage-two label {
     display: grid;
@@ -311,65 +344,13 @@ input:checked + .slider:before {
   .stage-two label input {
     grid-column: 2;
   }
-
-  .stage-four .addon,
-  .plan-summary,
-  .total-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .plan-header {
-    text-transform: capitalize;
-  }
-  .plan-header,
-  .plan-price {
-    color: var(--Blue-950);
-  }
-  .plan-price,
-  .total-price {
-    font-weight: 500;
-  }
-  .plan-summary button {
-    border: none;
-    background-color: white;
-    color: var(--Grey-500);
-    text-decoration: underline;
-    padding-left: 0;
-    margin-left: 0;
-  }
-  .addon-name,
-  .total-text {
-    color: var(--Grey-500);
-    text-transform: capitalize;
-  }
-  .addon-price,
-  .total-price {
-    color: var(--Purple-600);
-  }
-  .plan-price,
-  .addon-wrapper,
-  .addon-price,
-  .summary-wrapper,
-  .addon-wrapper,
-  .total-price {
-    align-self: center;
-  }
-  .plan-price,
-  .addon-price,
-  .total-price {
-    text-align: right;
-  }
-  .addon-wrapper,
-  .summary-wrapper,
-  .total-text {
-    grid-column: 1;
+  /* STAGE THREE STYLES */
+  .stage-two .main-text,.stage-three .main-text, .stage-four .main-text {
+    margin-bottom:1.75rem;
   }
 
-  .summary-total,
-  .total-price,
-  .addon-price {
-    grid-column: 2;
-  }
+  /* STAGE-FOUR STYLES FOR MOBILE */
+
 }
 @media only screen and (min-width: 650px) {
   #root {
@@ -389,6 +370,7 @@ input:checked + .slider:before {
     padding: 0.75rem;
     border-radius: 15px;
   }
+  /* NAVIGATION STEP DISPLAY STYLES */
   .step-display {
     position: static;
     grid-column: 1;
@@ -400,7 +382,7 @@ input:checked + .slider:before {
   .step-display-step {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    width:70%;
+    width:95%;
   }
   .nav-indicator {
     grid-column: 1;
@@ -411,8 +393,6 @@ input:checked + .slider:before {
   }
   .step-wrapper {
     grid-column: 2;
-    align-self: center;
-    justify-self: center;
   }
   .form {
     background-color: white;
@@ -423,15 +403,20 @@ input:checked + .slider:before {
     width: 100%;
     position:relative;
   }
-  .form-footer{
-    position:absolute;
-    left:0;
-    bottom:0;
-    width:100%;
-  }
+
   .form-step {
     width: auto;
   }
+  /* STEP 1 STYLES */
+
+  .stage-one label[for="name"]{
+    margin-top:2rem;
+  }
+.stage-one input[type="text"]{
+  margin-bottom:1.75rem;
+  font-weight:550;
+  cursor:pointer;
+}
   /* STEP 2 FORM FIELD WRAPPER */
   .stage-two article,
   .stage-three article {
@@ -469,5 +454,12 @@ input:checked + .slider:before {
   }
   .custom-profile {
     grid-row: 3;
+  }
+  /* FOOTER */
+  .form-footer{
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
   }
 }
