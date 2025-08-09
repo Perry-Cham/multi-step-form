@@ -34,6 +34,7 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     validateInput();
+
     console.log(
       formData,
       errors,
@@ -79,7 +80,12 @@ function Form() {
     <section className="form-container">
       <Step_Display currentStage={stage} />
       <form className="form" onSubmit={(e) => handleSubmit(e)}>
-        <Step_1 stage={stage} formData={formData} updateData={updateData} />
+        <Step_1
+          stage={stage}
+          formData={formData}
+          updateData={updateData}
+          errors={errors}
+        />
         <Step_2
           stage={stage}
           plan={plan}
