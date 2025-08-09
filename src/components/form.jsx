@@ -6,12 +6,12 @@ import Step_3 from "./form-steps/step-3";
 import Step_4 from "./form-steps/step-4";
 
 function Form() {
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
-    name:"",
-    address:"",
-    phoneNumber:""
-  })
+    name: "",
+    address: "",
+    phoneNumber: "",
+  });
   const [plan, setPlan] = useState("arcade");
   const [stage, setStage] = useState(1);
   const [planType, setPlanType] = useState("monthly");
@@ -22,7 +22,7 @@ function Form() {
     pro: 15,
     "online services": 1,
     "larger storage": 2,
-    "customizable profile": 2
+    "customizable profile": 2,
   });
   const [oldPrices, setOldPrices] = useState({ ...prices });
   const [submitted, setSubmitted] = useState(false);
@@ -31,37 +31,43 @@ function Form() {
     planType === "monthly" ? setPlanType("yearly") : setPlanType("monthly");
   };
   const handleSubmit = (e) => {
-    e.preventDefault()
-    validateInput()
-    console.log(formData, errors)
-    if(validateInput)return;
-    setStage((prev) => prev + 1);
+    e.preventDefault();
+    validateInput();
+    console.log(
+      formData,
+      errors,
+      Object.keys(errors).length,
+      Object.keys(errors).length > 1
+    );
+    if (Object.keys(errors).length < 1) {
+      setStage((prev) => prev + 1);
+    }
   };
   const handleGoBack = () => {
     setStage((prev) => prev - 1);
   };
-  const validateInput= (e) => {
-    let errors2 = {}
-    let errormsg = "This field is required "
-    if(formData.name.trim() === "") errors2.name = errormsg;
-    if(formData.address.trim() === "") errors2.address = errormsg;
-    if(formData.phoneNumber.trim() === "") errors2.phoneNumber = errormsg;
-  setErrors(errors2)
-  console.log(errors)
-    errors.keys > 0 ? true: false;
+  const validateInput = (e) => {
+    let errors2 = {};
+    let errormsg = "This field is required ";
+    if (formData.name.trim() === "") errors2.name = errormsg;
+    if (formData.address.trim() === "") errors2.address = errormsg;
+    if (formData.phoneNumber.trim() === "") errors2.phoneNumber = errormsg;
+    setErrors(errors2);
   };
   const updateData = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    const obj = {...formData, [name]:value}
-    setFormData(obj)
+    const obj = { ...formData, [name]: value };
+    setFormData(obj);
   };
   useEffect(() => {
     if (planType == "yearly") {
-      const newPrices = Object.entries(oldPrices).reduce((acc, [key, value]) => {
-        acc[key] = value * 12;
-        return acc;
-      });
+      const newPrices = Object.entries(oldPrices).reduce(
+        (acc, [key, value]) => {
+          acc[key] = value * 12;
+          return acc;
+        }
+      );
       setPrices(newPrices);
     } else {
       setPrices(oldPrices);
@@ -71,11 +77,7 @@ function Form() {
     <section className="form-container">
       <Step_Display currentStage={stage} />
       <form className="form" onSubmit={(e) => handleSubmit(e)}>
-        <Step_1 
-        stage={stage}
-        formData={formData}
-        updateData={updateData}
-        />
+        <Step_1 stage={stage} formData={formData} updateData={updateData} />
         <Step_2
           stage={stage}
           plan={plan}

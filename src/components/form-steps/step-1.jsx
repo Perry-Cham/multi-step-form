@@ -6,11 +6,11 @@ function Step_1({stage, formData, updateData}){
     <p className="main-text">Please provide name, email address and phone
 mumber</p>
     <label for="name">Name</label>
-    <input name="name" type="text" placeholder="e.g Stephen King" onChange={(e) => updateData(e)}/>
+    <input name="name" type="text" placeholder="e.g Stephen King" onChange={(e) => updateData(e)} />
     <label for="address">Address</label>
-    <input name="address" type="text" placeholder="e.g stephenking@lorem.com" onChange={(e) => updateData(e)}/>
+    <input name="address" type="text" placeholder="e.g stephenking@lorem.com" onChange={(e) => updateData(e)} />
     <label for="phoneNumber">Phone number</label>
-    <input name="phoneNumber" type="text"  placeholder="e.g +1 234 567 890" onChange={(e) => updateData(e)}/>
+    <input name="phoneNumber" type="text"  placeholder="e.g +1 234 567 890" onChange={(e) => updateData(e)}  />
   </div>
   )
 }
