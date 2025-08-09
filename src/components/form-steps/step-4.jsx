@@ -26,7 +26,7 @@ before continuing</p>
             <h4 className="plan-header">
               {plan} ({planType})
             </h4>
-            <button onClick={() => setStage(2)}>Change</button>
+            <button onClick={() => setStage(1)}>Change</button>
           </div>
 
           <p className="plan-price">+{prices[plan.toLowerCase()]}${planType == "monthly" ? "/mo" : "/yr"}</p>
