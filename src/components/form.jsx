@@ -55,6 +55,7 @@ function Form() {
     if (formData.name.trim() === "") errors2.name = errormsg;
     if (formData.address.trim() === "") errors2.address = errormsg;
     if (formData.phoneNumber.trim() === "") errors2.phoneNumber = errormsg;
+    setErrors(errors2)
     return errors2;
   };
   const updateData = (e) => {
