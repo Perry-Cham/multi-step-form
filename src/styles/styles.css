@@ -16,7 +16,7 @@ body {
   --Blue-100: hsl(218, 100%, 97%);
   --Blue-50: hsl(231, 100%, 99%);
 }
-/* Form Container */
+/* ===== Form Container ======== */
 
 /* Navigation bar */
 .step-display {
@@ -37,7 +37,6 @@ body {
 }
 .step-display div {
   margin: 0 1rem;
- /* text-align: center; */
 }
 .nav-indicator {
   margin: 0 auto;
@@ -63,14 +62,14 @@ body {
   font-weight:600;
   text-transform:uppercase;
 }
-/* Form Styles */
+
+/* ===== Form Styles ====== */
 .form {
   background-color: var(--Blue-200);
   padding-top: 20vh;
-  /* min-height: 95vh; */
   z-index: -1;
 }
-/* Form step styles */
+/* ===== Form step styles ====== */
 .form-step {
   width: 90vw;
   max-width: 450px;
@@ -104,7 +103,8 @@ body {
 .show-step {
   display: block;
 }
-/* STYLES FOR SPECIFIC STEPS */
+/* ======= STYLES FOR SPECIFIC FORM  STEPS ======== */
+
 /* STAGE 1 */
 .stage-one label, .stage-one input[type="text"]{
   color:var(--Blue-950);
@@ -236,7 +236,39 @@ label:has(input:checked):not(.switch) {
 .addon-price {
   grid-column: 2;
 }
-/* FORM FOOTER STYLES */
+/* STAGE FIVE */
+.form-step.stage-five{
+  height:70%;
+  width:80%;
+  margin:auto;
+  margin-bottom:1rem;
+}
+.show-step.stage-five{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.hero-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.hero-section img{
+  width:100px;
+  height:auto;
+}
+.hero-section h2{
+  text-align:center;
+  font-size:2rem;
+  color:var(--Blue-950);
+}
+.main-text{
+  color:var(--Grey-500);
+  text-align:center;
+}
+/* ======== FORM FOOTER STYLES =======  */
 .form-footer {
   display: flex;
   justify-content: space-around;

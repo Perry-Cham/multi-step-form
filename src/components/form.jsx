@@ -4,6 +4,7 @@ import Step_1 from "./form-steps/step-1";
 import Step_2 from "./form-steps/step-2";
 import Step_3 from "./form-steps/step-3";
 import Step_4 from "./form-steps/step-4";
+import Step_5 from "./form-steps/submitted";
 
 function Form() {
   const [errors, setErrors] = useState({});
@@ -39,7 +40,8 @@ function Form() {
       Object.keys(errors).length,
       Object.keys(errors).length > 1
     );
-    if (Object.keys(errors).length < 1) {
+    if (Object.keys(validateInput()).length < 1) {
+      console.log(stage)
       setStage((prev) => prev + 1);
     }
   };
@@ -52,7 +54,7 @@ function Form() {
     if (formData.name.trim() === "") errors2.name = errormsg;
     if (formData.address.trim() === "") errors2.address = errormsg;
     if (formData.phoneNumber.trim() === "") errors2.phoneNumber = errormsg;
-    setErrors(errors2);
+    return errors2;
   };
   const updateData = (e) => {
     const name = e.target.name;
@@ -95,6 +97,9 @@ function Form() {
           addons={addons}
           setStage={setStage}
           submitted={submitted}
+        />
+        <Step_5 
+        stage={stage}
         />
         <div className="form-footer">
           {stage > 1 && (
